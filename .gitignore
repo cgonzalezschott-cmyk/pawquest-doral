@@ -1,0 +1,5 @@
+_design/
+tools/
+screenshots/
+node_modules/
+*.zip

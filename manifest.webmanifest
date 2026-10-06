@@ -1,0 +1,21 @@
+{
+  "name": "PawQuest Doral",
+  "short_name": "PawQuest",
+  "description": "Gamified dog-walking dashboard: log walks, clients, missions, XP and levels.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#040a1c",
+  "theme_color": "#050b1f",
+  "categories": ["business", "productivity", "lifestyle"],
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Log a Walk", "url": "./?action=logwalk", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+  ]
+}
