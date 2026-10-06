@@ -151,8 +151,8 @@ h2,h3{margin:0}
 .price-list li{cursor:pointer;border-radius:8px;margin:0 4px}
 .price-list li:not(.div):hover{background:#e6edf9}
 .price-list svg{width:18px;height:18px;color:#1d2a47}
-.price-list li:not(.div){display:grid;grid-template-columns:20px minmax(0,1fr) 48px auto;column-gap:10px}
-.price-list .pbadge{min-width:118px}
+.price-list li:not(.div){display:grid;grid-template-columns:20px minmax(0,1fr) 46px 136px;column-gap:9px}
+.price-list .pbadge{min-width:0;overflow:visible}
 .price-list .pprice{font-weight:800}
 .price-list .pbadge{min-width:0}
 .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.3px;padding:3px 9px;border-radius:99px;white-space:nowrap}
