@@ -1,5 +1,5 @@
-/* PawQuest Doral service worker: offline-first app shell */
-const CACHE = 'pawquest-v1';
+/* Happy Hour · Doral service worker: offline-first app shell */
+const CACHE = 'happyhour-v2';
 const ASSETS = ['./', 'index.html', 'styles.css', 'app.js', 'manifest.webmanifest',
   'assets/hero-walker.jpg', 'assets/hq-doral.jpg', 'assets/golden-retriever.jpg',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png'];

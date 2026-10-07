@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PawQuest Doral</title>
-<meta name="description" content="PawQuest Doral — gamified dog-walking dashboard. Walk • Play • Happy Dogs • Stronger Neighbors.">
+<title>Happy Hour · Doral</title>
+<meta name="description" content="Happy Hour — gamified dog-walking dashboard in Doral. Walk • Play • Happy Hour.">
 <meta name="theme-color" content="#050b1f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="PawQuest">
+<meta name="apple-mobile-web-app-title" content="Happy Hour">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -21,17 +21,17 @@
 
   <!-- ROW 1 -->
   <div class="row row1">
-    <section class="card hero" aria-label="PawQuest Doral">
-      <img class="hero-img" src="assets/hero-walker.jpg" alt="Dog walker with a pack of happy dogs" fetchpriority="high">
+    <section class="card hero" aria-label="Happy Hour Doral">
+      <img class="hero-img" src="assets/hero-walker.jpg" alt="Professional dog walker with happy dogs on a sunny stroll" fetchpriority="high">
       <div class="hero-shade"></div>
       <div class="logo">
         <svg class="logo-paw"><use href="#i-pawf"/></svg>
         <div class="logo-text">
-          <div class="logo-word">PAW<span>QUEST</span></div>
+          <div class="logo-word">HAPPY <span>HOUR</span></div>
           <div class="logo-sub">DORAL</div>
         </div>
       </div>
-      <div class="tagline">WALK <i>•</i> PLAY <i>•</i> HAPPY DOGS<br>STRONGER NEIGHBORS</div>
+      <div class="tagline">WALK <i>•</i> PLAY <i>•</i> HAPPY HOUR<br>HAPPY DOGS · HAPPY NEIGHBORS</div>
       <ul class="perks">
         <li><svg><use href="#i-heart"/></svg><span><b>EXERCISE</b>HEALTHIER DOGS</span></li>
         <li><svg><use href="#i-smile"/></svg><span><b>PETS</b>HAPPIER OWNERS</span></li>
@@ -49,7 +49,7 @@
 
     <section class="card hq" aria-label="Headquarters">
       <div class="hq-photo">
-        <img src="assets/hq-doral.jpg" alt="Palm trees and towers in Downtown Doral" loading="lazy">
+        <img src="assets/hq-doral.jpg" alt="Modern Downtown Doral community with palm trees at golden hour" loading="lazy">
         <div class="hq-sign">CÉNTRICO<small>BY WINDSOR</small></div>
       </div>
       <div class="hq-title">
@@ -66,28 +66,33 @@
 
     <section class="card zones" aria-label="Service zones">
       <h2 class="zones-title">SERVICE ZONES</h2>
-      <svg class="zmap" viewBox="0 0 340 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Stylized map of service zones around Céntrico, Doral">
-        <defs>
-          <radialGradient id="z2g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#2d7bff" stop-opacity=".16"/><stop offset="1" stop-color="#2d7bff" stop-opacity=".36"/></radialGradient>
-          <radialGradient id="z1g" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#22c55e" stop-opacity=".55"/><stop offset="1" stop-color="#0b6b32" stop-opacity=".78"/></radialGradient>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <g class="z3" data-zone="3"><circle cx="170" cy="155" r="168" fill="none" stroke="#ff9f1c" stroke-width="2.5" stroke-dasharray="7 5" filter="url(#glow)"/></g>
-        <g class="z2" data-zone="2"><circle cx="170" cy="155" r="102" fill="url(#z2g)" stroke="#3b8bff" stroke-width="2.5" filter="url(#glow)"/></g>
-        <g class="z1" data-zone="1"><circle cx="170" cy="165" r="48" fill="url(#z1g)" stroke="#39ff7a" stroke-width="3" filter="url(#glow)"/>
-          <use href="#i-pawf" x="157" y="124" width="26" height="26" fill="#c9ffd8"/>
-          <text x="170" y="166" class="zt z1t">ZONE 1</text><text x="170" y="181" class="zt z1t">CÉNTRICO</text><text x="170" y="195" class="zt zsm">(Your HQ)</text>
-        </g>
-        <g data-zone="2"><text x="170" y="78" class="zt z2t">ZONE 2</text><text x="170" y="91" class="zt zw">Downtown Doral</text><text x="170" y="103" class="zt zw">&amp; White Course Park</text></g>
-        <text x="36" y="128" class="zt zw">Downtown</text><text x="36" y="141" class="zt zw">Doral</text>
-        <text x="40" y="222" class="zt zw">CityPlace</text><text x="40" y="235" class="zt zw">Doral</text>
-        <text x="304" y="160" class="zt zw">Doral White</text><text x="304" y="173" class="zt zw">Course Park</text>
-        <g class="z3label" data-zone="3"><text x="306" y="20" class="zt z3t">ZONE 3</text><text x="306" y="34" class="zt zw">Wider Doral</text><text x="306" y="46" class="zt zsm" id="z3status">(Later Unlock)</text>
-          <use href="#i-lock" id="z3lock" x="297" y="51" width="18" height="18" stroke="#ffb020"/></g>
-      </svg>
+      <div class="zmap" role="region" aria-label="Google Map of Happy Hour service zones around Céntrico, Doral">
+        <iframe class="gmap"
+          title="Google Map — Céntrico by Windsor, Doral"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          src="https://www.google.com/maps?q=C%C3%A9ntrico+by+Windsor,+8425+NW+41st+St,+Doral,+FL+33166&amp;z=14&amp;hl=en&amp;output=embed"></iframe>
+        <div class="zone-legend" aria-label="Zone legend">
+          <button type="button" class="zleg z1c" data-zone="1">
+            <span class="zdot"></span>
+            <span><b>Zone 1 · Céntrico</b><small>Your HQ</small></span>
+          </button>
+          <button type="button" class="zleg z2c" data-zone="2">
+            <span class="zdot"></span>
+            <span><b>Zone 2 · Downtown</b><small>Doral &amp; White Course Park</small></span>
+          </button>
+          <button type="button" class="zleg z3c" data-zone="3" id="z3leg">
+            <span class="zdot"></span>
+            <span><b>Zone 3 · Wider Doral</b><small id="z3status">(Later Unlock)</small></span>
+            <svg class="zlock" id="z3lock"><use href="#i-lock"/></svg>
+          </button>
+        </div>
+      </div>
       <div class="zone-chips">
         <button class="zchip z1c" data-zone="1">Zone 1</button><button class="zchip z2c" data-zone="2">Zone 2</button><button class="zchip z3c" data-zone="3"><span id="z3chip">Zone 3 🔒</span></button>
       </div>
+      <p class="map-note">Google Maps embed (no API key) · pin = Céntrico HQ</p>
     </section>
   </div>
 
@@ -154,7 +159,7 @@
 
   <footer class="foot">
     <button class="linkbtn" data-act="menu">Settings &amp; data</button> · <button class="linkbtn" data-act="credits">Photo credits</button>
-    <div class="ver">PawQuest Doral · works offline · data stays on this device</div>
+    <div class="ver">Happy Hour · Doral · works offline · data stays on this device</div>
   </footer>
 </main>
 

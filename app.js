@@ -1,4 +1,4 @@
-/* PawQuest Doral — all data stays in localStorage on this device. */
+/* Happy Hour (Doral) — all data stays in localStorage on this device. */
 (() => {
 'use strict';
 const KEY = 'pawquest-doral:v1';
@@ -22,7 +22,7 @@ const LEVELS = [
    items: ['5+ regular clients', 'Collect 5-star reviews', 'Build routine schedule']},
   {n: 3, name: 'Doral Walker',     min: 300, next: 700, color: '#a855f7', icon: 'crown', cls: 'l3',
    items: ['10+ active clients', 'Expand to Zone 2', 'Add drop-in visits', 'Branded shirt & gear']},
-  {n: 4, name: 'PawQuest Pro',     min: 700, next: null, color: '#ffc23a', icon: 'trophy', cls: 'l4',
+  {n: 4, name: 'Happy Hour Pro',   min: 700, next: null, color: '#ffc23a', icon: 'trophy', cls: 'l4',
    items: ['20+ active clients', 'Expand to wider Doral', 'Offer dog sitting & more', 'Formalize business (optional)'],
    itemIcons: ['dollar', 'foot', 'dollar', 'pencil']},
 ];
@@ -58,7 +58,7 @@ const SAFETY = [
   ['camera', 'Photo update after every walk'],
 ];
 const UNLOCKS = [
-  {id: 'shirt', title: 'Branded<br>Shirt &amp; Gear', icon: 'shirt', lvl: 3, tip: 'A branded PawQuest tee + leash bag makes you instantly recognizable in the lobby and the park.'},
+  {id: 'shirt', title: 'Branded<br>Shirt &amp; Gear', icon: 'shirt', lvl: 3, tip: 'A branded Happy Hour tee + leash bag makes you instantly recognizable in the lobby and the park.'},
   {id: 'qr', title: 'QR Flyers', sub: 'for your building', icon: 'qr', lvl: 1, tip: 'Print a modern flyer with a QR code (WhatsApp link or booking form). Ask management where you can post it: lobby, elevators, mail rooms.'},
   {id: 'gbp', title: 'Google<br>Business Profile', icon: 'google', lvl: 2, tip: 'Create a free Google Business Profile (service-area business, no public address) so happy clients can leave reviews.'},
   {id: 'sit', title: 'Pet Sitting', sub: '(drop-ins)', icon: 'home', lvl: 3, tip: 'Offer drop-in visits (feed, water, potty) for $15 — great for travel season.'},
@@ -220,7 +220,7 @@ function render() {
     gi.innerHTML = `<small>NEXT GOAL</small><span>${esc(g.name)}</span><b>+${g.xp} XP</b><em class="claim">Tap to claim!</em>`;
   } else {
     gc.classList.remove('ready');
-    gi.innerHTML = `<small>ALL GOALS DONE</small><span>You're a PawQuest legend</span><b>🏆</b>`;
+    gi.innerHTML = `<small>ALL GOALS DONE</small><span>You're a Happy Hour legend</span><b>🏆</b>`;
   }
   // pricing
   $('#priceList').innerHTML = SERVICES.map(s => s.div ? '<li class="div" aria-hidden="true"></li>' :
@@ -537,12 +537,12 @@ function zoneSheet(z) {
   const info = {
     1: ['Zone 1 · Céntrico (Your HQ)', 'Your building and the immediate neighborhood. Start here: one dog at a time, founding clients, short walks to the park.', true],
     2: ['Zone 2 · Downtown Doral & White Course Park', 'Downtown Doral and Doral White Course Park — great for longer 45/60 min walks. Expand here around Level 3.', true],
-    3: ['Zone 3 · Wider Doral', 'Wider Doral, including CityPlace and beyond. Unlocks at Level 4 (PawQuest Pro).', L.n >= 4],
+    3: ['Zone 3 · Wider Doral', 'Wider Doral, including CityPlace and beyond. Unlocks at Level 4 (Happy Hour Pro).', L.n >= 4],
   }[z];
   const count = S.clients.filter(c => +c.zone === +z && c.active).length;
   openSheet(info[0], `<div class="summary" style="margin-bottom:12px"><div><small>${info[2] ? 'AVAILABLE' : 'LATER UNLOCK'}</small><b style="font-size:17px">${count} active client${count === 1 ? '' : 's'} here</b></div>${ic(info[2] ? 'pin' : 'lock', info[2] ? 'green' : 'gold')}</div>
     <p class="note" style="font-size:14px">${info[1]}</p>
-    <a class="btn blue block" target="_blank" rel="noopener" href="https://www.openstreetmap.org/search?query=${encodeURIComponent(z == 1 ? 'Centrico Doral Florida' : z == 2 ? 'Downtown Doral Florida' : 'Doral Florida')}">${ic('map')}Open map</a>`);
+    <a class="btn blue block" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(z == 1 ? 'Céntrico by Windsor, 8425 NW 41st St, Doral, FL' : z == 2 ? 'Downtown Doral, Florida' : 'Doral, Florida')}">${ic('map')}Open in Google Maps</a>`);
 }
 
 /* --- menu / settings --- */
@@ -569,13 +569,13 @@ function menuSheet() {
     $$('[data-go]', b).forEach(el => el.onclick = () => ACT[el.dataset.go]());
     $('#exp', b).onclick = () => {
       const blob = new Blob([JSON.stringify(S, null, 2)], {type: 'application/json'});
-      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `pawquest-backup-${today()}.json`; a.click();
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `happyhour-backup-${today()}.json`; a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     };
     $('#imp', b).onchange = async e => {
       const file = e.target.files[0]; if (!file) return;
       try { const d = JSON.parse(await file.text()); if (d.v !== 1 || !Array.isArray(d.walks)) throw 0; S = d; save(); render(); closeSheet(); toast('✅ Backup restored'); }
-      catch { toast('⚠️ That file is not a PawQuest backup'); }
+      catch { toast('⚠️ That file is not a Happy Hour backup'); }
     };
     $('#demo', b).onclick = () => { if (confirm('Replace everything with the demo data ($225, 3 clients, 50 XP)?')) { S = seed(); save(); render(); closeSheet(); toast('Demo data loaded'); } };
     $('#wipe', b).onclick = () => { if (confirm('Erase ALL clients, walks, reviews and XP and start from zero?')) { S = blank(); save(); render(); closeSheet(); toast('Fresh start — go get your first founding dog!'); } };
@@ -585,8 +585,8 @@ let deferredPrompt = null;
 window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; });
 function installSheet() {
   const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
-  openSheet('Add to Home Screen', standalone ? '<p class="empty">✅ PawQuest is already installed on this device.</p>' : `
-    ${deferredPrompt ? `<button class="btn primary block" id="inst" style="margin-bottom:12px">${ic('spark')}Install PawQuest</button>` : ''}
+  openSheet('Add to Home Screen', standalone ? '<p class="empty">✅ Happy Hour is already installed on this device.</p>' : `
+    ${deferredPrompt ? `<button class="btn primary block" id="inst" style="margin-bottom:12px">${ic('spark')}Install Happy Hour</button>` : ''}
     <p class="note" style="font-size:14px"><b>iPhone (Safari):</b> tap the Share button <b>⎋</b> → <b>Add to Home Screen</b> → Add.</p>
     <p class="note" style="font-size:14px"><b>Android (Chrome):</b> tap <b>⋮</b> → <b>Install app</b> (or <b>Add to Home screen</b>).</p>
     <p class="note">Once installed it opens full-screen and works offline.</p>`, b => {
@@ -595,11 +595,11 @@ function installSheet() {
 }
 function creditsSheet() {
   openSheet('Photo credits', `<div class="note" style="font-size:13.5px;line-height:1.6">
-    <p><b>Dog walker hero:</b> photo by Sarah O'Shea on <a href="https://www.pexels.com/photo/man-walking-multiple-dogs-on-a-sidewalk-26839567/" target="_blank" rel="noopener">Pexels</a> (Pexels License).</p>
-    <p><b>Downtown Doral (HQ card):</b> “Downtown Doral, Florida” by Ven-Lib, <a href="https://commons.wikimedia.org/wiki/File:Downtown_Doral,_Florida.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> (cropped). Representative photo of the area, not the Céntrico building.</p>
-    <p><b>Golden retriever:</b> “Golden Retriever medium-to-light-coat” by Morphdog, <a href="https://commons.wikimedia.org/wiki/File:Golden_Retriever_medium-to-light-coat.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> (resized).</p>
+    <p><b>Dog walker hero:</b> photo by Blue Bird on <a href="https://www.pexels.com/photo/a-young-woman-walking-a-group-of-dogs-in-a-park-7210524/" target="_blank" rel="noopener">Pexels</a> (Pexels License).</p>
+    <p><b>Downtown Doral (HQ card):</b> “Downtown Doral, Florida” by Ven-Lib, <a href="https://commons.wikimedia.org/wiki/File:Downtown_Doral,_Florida.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> (cropped). Representative photo of the area near HQ, not the Céntrico building itself.</p>
+    <p><b>Golden retriever:</b> photo by Weigner Luan on <a href="https://www.pexels.com/photo/close-up-shot-of-a-golden-retriever-7163497/" target="_blank" rel="noopener">Pexels</a> (Pexels License).</p>
     <p><b>Icons:</b> <a href="https://lucide.dev" target="_blank" rel="noopener">Lucide</a> (ISC license); WhatsApp glyph from Simple Icons (CC0).</p>
-    <p>Map is a stylized illustration, not to scale.</p></div>`);
+    <p><b>Map:</b> Google Maps iframe embed centered on Céntrico by Windsor, Doral (no Maps API key required). Zone labels are Happy Hour UI overlays.</p></div>`);
 }
 
 const ACT = {
@@ -644,5 +644,5 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
 }
 // show the floating Log Walk button on desktop once the hero scrolls away
 if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => $('.desk-fab').classList.toggle('show', !e.isIntersecting), {threshold: .15}).observe($('.hero'));
-window.PawQuest = {get state() { return S; }, render};
+window.HappyHour = window.PawQuest = {get state() { return S; }, render};
 })();
